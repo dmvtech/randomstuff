@@ -1,0 +1,107 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "9zZBgE",
+    "name": "Choices",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "g6WuOo"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "5SP23N"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_5SP23N()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "choices": [
+            {
+              "value": "One"
+            },
+            {
+              "value": "Two"
+            },
+            {
+              "value": "Three"
+            }
+          ],
+          "property": "user.optionselected",
+          "recognizerOptions": {
+            "recognizeOrdinals": true
+          }
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "e4L1AU"
+          },
+          "condition": "user.optionselected",
+          "cases": [
+            {
+              "value": "One",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "NScQVV"
+                  },
+                  "activity": "${SendActivity_NScQVV()}"
+                }
+              ]
+            },
+            {
+              "value": "Two",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "QAGiKv"
+                  },
+                  "activity": "${SendActivity_QAGiKv()}"
+                }
+              ]
+            },
+            {
+              "value": "Three",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "aCZfFY"
+                  },
+                  "activity": "${SendActivity_aCZfFY()}"
+                }
+              ]
+            }
+          ],
+          "default": []
+        }
+      ]
+    }
+  ],
+  "generator": "Choices.lg",
+  "recognizer": "Choices.lu.qna",
+  "id": "Choices"
+}
